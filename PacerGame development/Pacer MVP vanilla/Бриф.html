@@ -1,0 +1,631 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Бриф</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+</style></head><body><article id="7ea43d66-6c7a-419e-a3df-0e159c742c26" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📃</span></div><h1 class="page-title">Бриф</h1></header><div class="page-body"><ul id="21774343-e05f-4c92-bfa2-09fbfa7e1238" class="toggle"><li><details open=""><summary><strong>Что мы делаем?</strong></summary><p id="86dd4ec6-fb91-4713-9c1a-e0aa13b5b794" class="">Небольшое минималистичное веб-приложение органайзер с некоторой игрофикацией. Пользователь будет брать в нём задачи и отчитываться по их выполнению. Особенность в том, что на взятие задач нужны очки, и эти очки зарабатываются выполнением задач. Что позволяет накапливать больше очков, брать больше задач, выполняя их накапливать ещё больше... и т.д. За основу берётся <a href="../Pacer%20framework.html">Pacer framework</a>, но реализована будет лишь часть правил.</p></details></li></ul><ul id="141f7525-8517-46ff-a7b9-475224df7b46" class="toggle"><li><details open=""><summary><strong>Как мы это делаем?</strong></summary><p id="fb3a3e85-18fe-4f36-b5de-31771fa7d6a7" class="">Используются HTML, CSS, JS. Не используются сторонние библиотеки, модули, фреймворки, сборщики, шаблонизаторы. Делаем одностраничное приложение c несколькими &quot;экранами&quot; и простыми переходами между ними. Регистрация пользователя отсутствует. Предполагается возможность пассивного сохранения данных в localStorage, а также сохранение в и загрузка из файла .json.</p><p id="0c5da84e-2297-4529-93ec-a4876a7d9f53" class="">В разработке стремимся к максимальной модульности блоков, реализующих аспекты необходимого функционала.</p></details></li></ul><ul id="ba11f0a7-a0e7-4543-a3da-de0d116ff6ae" class="toggle"><li><details open=""><summary><strong>Как должен выглядеть результат?</strong></summary><p id="7acaf3e7-7a33-4369-9237-0ac64b1f4306" class="">Интерфейс минималистичен. Белый фон, слегка сероватый на некоторых блоках, текст и рамки в оттенках серого. Шрифт без засечек. Текст на русском языке. Кнопки с надписями без иконок. </p><p id="d4ace74e-055e-4b81-a578-93ba160ab9b3" class="">Pacer MVP должен позволять переключаться между двумя режимами: реального времени и моделируемого - для этого в интерфейсе постоянно должна присутствовать небольшая панель-полоска. </p><p id="a8ffd987-f507-4dfb-9a49-2078dd9be9bf" class="">
+</p><p id="af88c438-92c4-4f5e-81d4-fc35672ffc6c" class="">На всех экранах так или иначе должен присутствовать индикатор количества очков веры в себя.</p><p id="8e8dd0a0-666f-41ac-bddd-a6b7eb236671" class="">Переходы между экранами Действия, Квесты, Выполнение по принципу вкладок.</p><p id="b7056daf-06b0-4ddd-9990-ab56e2fa6a63" class="">В интерфейсе будут переходы между экранами: </p><ul id="1ca17719-77e5-40a7-aeba-ee125cd376fa" class="toggle"><li><details open=""><summary><strong>Главная</strong></summary><p id="79d7abbf-6fd0-4ad2-8bc7-855cd8d2d947" class="">Содержит главное меню (вкладки) для перехода на экраны Действия, Квесты, Выполнение.</p><p id="fb1310e7-7e2d-4883-b458-628eb6688d54" class="">Уведомляет про количество </p><ul id="dfd6103e-806d-4b70-ab4d-932575de2953" class="bulleted-list"><li>ожидаемых выполнений сегодня</li></ul><ul id="3f0d1ac3-3945-4b71-bafc-cfffb5258a2e" class="bulleted-list"><li>затянутых отчётов по действиям в прошедшие дни</li></ul><ul id="283aedf6-7e83-4607-bcc4-7b8ddc92252c" class="bulleted-list"><li>количество очков веры в себя, вложенных в текущие квесты</li></ul><ul id="673acb54-3edc-414e-a3db-8e955d73d91d" class="bulleted-list"><li>количество текущих квестов</li></ul><ul id="b7e3843f-7825-45a5-98aa-b996d8e7ca04" class="bulleted-list"><li>процент выполненных квестов от общего числа выполненных и проваленных</li></ul></details></li></ul><ul id="33908d3e-926a-4425-9e8c-dd280eff3ffd" class="toggle"><li><details open=""><summary><strong>Действия</strong></summary><ul id="67e6d5d7-216b-4950-a622-fe942f11a1f1" class="toggle"><li><details open=""><summary>вложенные экраны:</summary><ul id="2a44bd22-a8f4-41e0-bc73-7871f4aba2fe" class="toggle"><li><details open=""><summary><strong>Новое Действие</strong></summary><p id="e6a5ce22-99f3-4654-8ef6-c89bd5c29df9" class="">Содержит форму для добавления действия с полями для формулировки, меры одного выполнения, субъективной оценки сложности, выбора схемы регулярности и с кнопками Добавить, Очистить, Отмена.</p></details></li></ul><ul id="2560caec-959a-4536-8447-f086db8040cd" class="toggle"><li><details open=""><summary><strong>Действие</strong></summary><p id="2947369c-96a1-41e1-920f-b5401b9647c4" class="">Отражает формулировку действия, меру одного выполнения, сложность. Позволяет их изменить.</p><p id="e23a4b84-eb46-46c8-9c6c-53fcd9838bb7" class="">Позволяет перейти к экрану Новый квест, для взятия квеста на это действие.</p><p id="2e7ac6eb-e189-4e61-9578-6d7fd7e3823a" class="">Позволяет перейти в Квесты, отфильтровав их и показывая только квесты на это действие.</p></details></li></ul></details></li></ul><p id="01cb202c-ebe6-4bc3-b3fa-44b62715eed2" class="">Содержит список добавленных действий с возможностью менять представление: сортировать, фильтровать, делать выборку по строке.</p></details></li></ul><ul id="cf8d3f1a-2646-4f9e-b788-74b32330afd4" class="toggle"><li><details open=""><summary><strong>Квесты</strong></summary><ul id="ed4d550c-719c-4fbb-b540-cb325d9cd57e" class="toggle"><li><details open=""><summary>вложенные экраны:</summary><ul id="ae9db04c-77c6-42c0-9b1e-f2faa8771fd3" class="toggle"><li><details open=""><summary><strong>Новый Квест</strong></summary><p id="aee3af72-f668-48b8-972b-253ba633c1df" class="">Содержит форму для взятия квеста, где показана формулировка действия, мера одного выполнения, сложность, и есть элементы интерфейса, позволяющие выбрать, на какие дни будет запланирован квест (поля ввода, кнопки или календарь), и увидеть, сколько ВВС он будет стоить, и кнопки Взять квест, Очистить, Отмена.</p></details></li></ul><ul id="4286ca3b-b4da-412c-980d-224f8f6c3b93" class="toggle"><li><details open=""><summary><strong>Квест</strong></summary><p id="d333cf2f-a5d2-4a76-b060-42f07455d937" class="">Отражает условия квеста: формулировку действия, меру одного выполнения, прогресс по квесту, дни, на которые он был запланирован и дни, когда он был выполнен после конца плана.</p></details></li></ul></details></li></ul><p id="4c48c876-a1a7-4ef2-aa46-0c3d30c34187" class="">Содержит список взятых квестов с возможностью менять представление: сортировать, фильтровать, делать выборку по строке.</p></details></li></ul><ul id="3259e16c-70a9-4f59-bb59-6c85b5a1316c" class="toggle"><li><details open=""><summary><strong>Выполнение</strong></summary><p id="b2118971-594d-4b70-916a-219bf3b36b13" class="">Показывает список выполнений действий, ожидаемых в текущий день, исходя из продолжающихся квестов. Переход влево/вправо покажет предыдущий/следующий день. Сегодняшние и более ранние выполнения можно и нужно отмечать как выполненные, получая за это соответствующие очки ВВС, или проваленные.</p></details></li></ul></details></li></ul><ul id="5fc7ffac-6004-4b15-9b3e-03d41d3d0f84" class="toggle"><li><details open=""><summary><strong>Кто этим будет пользоваться?</strong></summary><ul id="938357ae-5b44-4d53-a30b-d51f701d9379" class="bulleted-list"><li>Я (Михаил Нинин)</li></ul><ul id="e0236b45-0422-485d-ad81-2eeb07fe9b77" class="bulleted-list"><li>круг друзей и знакомых (достаточно снисходительных к вероятным недоработкам и общей сырости продукта)</li></ul><ul id="b43f970b-046c-4a12-a99b-f9328a538a63" class="bulleted-list"><li>случайные люди, с которыми поделятся ссылкой (вероятно, с минимальной вовлечённостью)</li></ul></details></li></ul><ul id="b6da375f-744b-488a-8be5-28440972fb5a" class="toggle"><li><details open=""><summary><strong>Каков будет процесс пользования?</strong></summary><p id="6b8be2fd-368c-4d72-8826-b6e246e3ffe3" class="">Процесс пользования можно разделить на три фазы:</p><ol id="23746e6c-06ad-4c71-91aa-0feb59c22d54" class="numbered-list" start="1"><li>Прелюдия<p id="7c878602-0995-4c74-b50f-254fe7660ac1" class="">Самое первое, что должен сделать пользователь, это выбрать в отдельной модалке свою субъективную оценку веры в себя по десятибалльной шкале. До этого никакого другого взаимодействия с программой не предполагается. После выполнения этого шага пользователь переходит к базовой фазе.</p></li></ol><ol id="3a263df5-3a80-4ea4-ae63-e26e25a5752f" class="numbered-list" start="2"><li>Начальная фаза<p id="d273d52f-b585-40f5-9767-ed46b97c5699" class="">Пользователь попадает на экран действий и должен добавить себе какие-то действия в список. При попытке перейти на другой экран, не добавив их, ему модалкой поясняется, что так не пойдёт. Выход из этого экрана знаменует переход к третьей - основной фазе игры.</p></li></ol><ol id="d4a8bb5f-4d2b-4854-9571-5e2d60bdc5b5" class="numbered-list" start="3"><li>Игровой цикл<p id="aba94e33-5476-40b1-97ba-b1c79ea57946" class="">Пользователь волен переходить между экранами, смотря, добавляя, редактируя и удаляя действия в экране действий, беря на них квесты, если хватает очков ВВС, смотря свои квесты в экране квестов, отчитываясь по ним в экране выполнений.</p><p id="8303cc9c-1441-46b3-805e-f0068134d833" class="">Предполагается, что пользователь будет каждый день заходить в программу, как минимум раз, а в идеале 2-5 раз за сутки: утром смотреть, по каким квестам сегодня нужно выполнять действия и отчитываться, днём-вечером заходить, чтобы отметить выполненными уже сделанные, и чтобы взять новые, если полученных очков уже хватает на новые квесты, и снова каждым следующим утром, чтобы отметиться, если не получилось накануне, сделано или провалено оказалось то или иное действие из вчерашних или более ранних, после чего снова смотреть, что нужно делать сегодня, и продолжать циклически действовать таким образом.</p><p id="36fdc9d9-d23e-4910-b8db-330298f452b9" class="">
+</p></li></ol></details></li></ul><p id="eca3bd50-6d4a-4013-bd0b-0ed1d6df22a2" class="">
+</p></div></article></body></html>
