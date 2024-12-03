@@ -1,639 +1,166 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Pacer related materials and repos registry</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	text-indent: -1.7em;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
-
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
-
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
-
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
-
-.highlight-default {
-}
-.highlight-gray {
-	color: rgb(155,154,151);
-}
-.highlight-brown {
-	color: rgb(100,71,58);
-}
-.highlight-orange {
-	color: rgb(217,115,13);
-}
-.highlight-yellow {
-	color: rgb(223,171,1);
-}
-.highlight-teal {
-	color: rgb(15,123,108);
-}
-.highlight-blue {
-	color: rgb(11,110,153);
-}
-.highlight-purple {
-	color: rgb(105,64,165);
-}
-.highlight-pink {
-	color: rgb(173,26,114);
-}
-.highlight-red {
-	color: rgb(224,62,62);
-}
-.highlight-gray_background {
-	background: rgb(235,236,237);
-}
-.highlight-brown_background {
-	background: rgb(233,229,227);
-}
-.highlight-orange_background {
-	background: rgb(250,235,221);
-}
-.highlight-yellow_background {
-	background: rgb(251,243,219);
-}
-.highlight-teal_background {
-	background: rgb(221,237,234);
-}
-.highlight-blue_background {
-	background: rgb(221,235,241);
-}
-.highlight-purple_background {
-	background: rgb(234,228,242);
-}
-.highlight-pink_background {
-	background: rgb(244,223,235);
-}
-.highlight-red_background {
-	background: rgb(251,228,228);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(55, 53, 47, 0.6);
-	fill: rgba(55, 53, 47, 0.6);
-}
-.block-color-brown {
-	color: rgb(100,71,58);
-	fill: rgb(100,71,58);
-}
-.block-color-orange {
-	color: rgb(217,115,13);
-	fill: rgb(217,115,13);
-}
-.block-color-yellow {
-	color: rgb(223,171,1);
-	fill: rgb(223,171,1);
-}
-.block-color-teal {
-	color: rgb(15,123,108);
-	fill: rgb(15,123,108);
-}
-.block-color-blue {
-	color: rgb(11,110,153);
-	fill: rgb(11,110,153);
-}
-.block-color-purple {
-	color: rgb(105,64,165);
-	fill: rgb(105,64,165);
-}
-.block-color-pink {
-	color: rgb(173,26,114);
-	fill: rgb(173,26,114);
-}
-.block-color-red {
-	color: rgb(224,62,62);
-	fill: rgb(224,62,62);
-}
-.block-color-gray_background {
-	background: rgb(235,236,237);
-}
-.block-color-brown_background {
-	background: rgb(233,229,227);
-}
-.block-color-orange_background {
-	background: rgb(250,235,221);
-}
-.block-color-yellow_background {
-	background: rgb(251,243,219);
-}
-.block-color-teal_background {
-	background: rgb(221,237,234);
-}
-.block-color-blue_background {
-	background: rgb(221,235,241);
-}
-.block-color-purple_background {
-	background: rgb(234,228,242);
-}
-.block-color-pink_background {
-	background: rgb(244,223,235);
-}
-.block-color-red_background {
-	background: rgb(251,228,228);
-}
-.select-value-color-default { background-color: rgba(206,205,202,0.5); }
-.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
-.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
-.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
-.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
-.select-value-color-green { background-color: rgba(0,135,107,0.2); }
-.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
-.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
-.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
-.select-value-color-red { background-color: rgba(255,0,26,0.2); }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-</style></head><body><article id="69499102-712f-4074-a4c1-12fe6f5415c2" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🏢</span></div><h1 class="page-title">Pacer related materials and repos registry</h1></header><div class="page-body"><h3 id="5968a20d-8485-4c99-98c9-1acdb472a582">← <a href="../pacer-game-dev.html">root Pacer page here at Notion</a></h3><hr id="86a6be10-9824-4f6d-a921-f7a6e21b9ccd"/><ul id="b505352d-fd01-4d4c-94ae-60cbf9200cfc" class="toggle"><li><details open=""><summary><mark class="highlight-orange_background"><a href="https://sites.google.com/site/mihailninin/media/instruments/pacer-development">Страница на Google Sites, посвящённая разработкe,   2016 - 2019</a></mark></summary><p id="7b83805f-f65e-4cfa-ae90-123090e60ca9"><a href="https://sites.google.com/site/mihailninin/media/instruments/pacer-development">https://sites.google.com/site/mihailninin/media/instruments/pacer-development</a><div class="indented"><p id="e7c369ef-5a64-4371-afee-efc74a37fbb8"><a href="https://sites.google.com/site/mihailninin/media/instruments/pacer-development/vision">0. Виденье</a></p><p id="f2692c1d-2c06-4630-8171-35586487dc43"><a href="https://sites.google.com/site/mihailninin/media/instruments/pacer-development/intro">1. Введение</a></p><p id="cf7f5016-7171-4614-b35c-297b3156492a"><a href="https://sites.google.com/site/mihailninin/media/instruments/pacer-development/process">2. Процесс</a></p><p id="b7eedf6a-7b6a-4054-b873-f7f073648f1f"><a href="https://sites.google.com/site/mihailninin/media/instruments/pacer-development/details">3. Правила детальнее</a></p></div></p></details></li></ul><ul id="d9351497-465e-429f-9679-28ebb18c9669" class="toggle"><li><details open=""><summary><a href="https://docs.google.com/document/d/1Fo_5vO3ItORyFo0knauARzT_XRa4X4JuVm7p6F76Cmw">Бриф PacerGame в Google Docs,   2019-04</a></summary><p id="4574df1b-b4e3-4d84-afbc-5e8b2a4d4580"><a href="http://bit.ly/brief-pacergame">http://bit.ly/brief-pacergame</a> = <a href="https://docs.google.com/document/d/1Fo_5vO3ItORyFo0knauARzT_XRa4X4JuVm7p6F76Cmw/edit">https://docs.google.com/document/d/1Fo_5vO3ItORyFo0knauARzT_XRa4X4JuVm7p6F76Cmw</a></p></details></li></ul><ul id="916a34af-3991-4e18-b84d-fdaadfac60e7" class="toggle"><li><details open=""><summary><mark class="highlight-blue_background"><a href="https://docs.google.com/document/d/13nod5JPGNOa-akE364s1lMaBXgGb8kPT2jdpL56MTuM">Описание моего кейса пользования фреймворком в Google Docs,   2018-08</a></mark></summary><p id="a97d45d4-cee6-4f4b-9aa1-d7518f12eeca"><a href="http://bit.ly/pacer-my-case">http://bit.ly/pacer-my-case</a> =
-<a href="https://docs.google.com/document/d/13nod5JPGNOa-akE364s1lMaBXgGb8kPT2jdpL56MTuM/edit">https://docs.google.com/document/d/13nod5JPGNOa-akE364s1lMaBXgGb8kPT2jdpL56MTuM</a></p></details></li></ul><ul id="dd17075f-a74b-414b-ae2b-b1667fb0188e" class="toggle"><li><details open=""><summary><a href="https://docs.google.com/presentation/d/1F7OijfC84Qgb36TBPLEFZHc2hbupF0jsUK90DrSmgAI">Визуальная иерархическая презентация в Google Slides,   2016-10</a></summary><p id="18966c23-9f97-4391-85c0-69b5ccdeb52c"><a href="https://docs.google.com/presentation/d/1F7OijfC84Qgb36TBPLEFZHc2hbupF0jsUK90DrSmgAI">https://docs.google.com/presentation/d/1F7OijfC84Qgb36TBPLEFZHc2hbupF0jsUK90DrSmgAI</a></p><p id="a1e1c0ea-1eb3-4a4b-a2e8-c15bd964da75">
-</p></details></li></ul><ul id="99ce9533-b1fb-4d9a-b351-7c43c2bad860" class="toggle"><li><details open=""><summary>Прежние законченные и брошенные попытки реализации</summary><ul id="11592610-ca43-4f7f-a90e-45eb59f33be0" class="toggle"><li><details open=""><summary><mark class="highlight-teal_background"><a href="https://serhiishymchuk.github.io/pacer/">pacer - реализация, написанная с Шимой  (functional, in localStorage, save/load state json),   2020-10</a></mark></summary><p id="26dc88e0-65c2-41aa-a9a6-9ae3a55cd4d0"><a href="https://github.com/UniBreakfast/pacer-1">https://github.com/UniBreakfast/pacer-1</a></p><p id="7cad320a-d4a5-451b-86ce-4dddcc0ed9c0"><a href="https://serhiishymchuk.github.io/pacer/">serhiishymchuk.github.io/pacer</a></p></details></li></ul><ul id="a71ac4f8-1a48-44b2-b5c8-685264901122" class="toggle"><li><details open=""><summary><a href="https://github.com/Degreet/pacer">pacer - реализация, недописанная с Никитой  (bootstrap, new quest modal with calendars),   2020-11</a></summary><p id="4290f88e-82e9-421c-98e3-e5d76d7f369d"><a href="https://github.com/Degreet/pacer">https://github.com/Degreet/pacer</a>
-<a href="https://pacer-js.herokuapp.com/dashboard/activity">https://pacer-js.herokuapp.com/dashboard/activity</a></p></details></li></ul><ul id="60624dd7-9c27-49d4-a317-7533dbfd1afa" class="toggle"><li><details open=""><summary><mark class="highlight-gray_background"><a href="https://github.com/UniBreakfast/layout-layout">layout-layout - минималистичная разметка страниц/экранов возможной реализации,   2020-08</a></mark></summary><p id="47d627f9-858f-4c10-b54f-e351e5eb1cd9"><a href="https://github.com/UniBreakfast/layout-layout">https://github.com/UniBreakfast/layout-layout</a>
-<a href="https://unibreakfast.github.io/layout-layout/screens/start/">https://unibreakfast.github.io/layout-layout/screens/start/</a></p></details></li></ul><ul id="c7dc78c6-07b3-4fe0-8df9-52d8a81335fd" class="toggle"><li><details open=""><summary><a href="https://github.com/UniBreakfast/pacer-code-base">pacer-code-base  (компоненты SplitView, remember Tabs, dev layers),   2021-04</a></summary><p id="77864b68-eeb2-4c0a-a577-8bbbfde72360"><a href="https://github.com/UniBreakfast/pacer-code-base">https://github.com/UniBreakfast/pacer-code-base</a></p><p id="792ff581-b152-4c38-8742-8b885e33bd85"><a href="https://unibreakfast.github.io/pacer-code-base/">https://unibreakfast.github.io/pacer-code-base/</a></p></details></li></ul><ul id="467814fa-e931-4a19-b592-a9249b53e59e" class="toggle"><li><details open=""><summary><mark class="highlight-red_background"><a href="https://github.com/UniBreakfast/modularity-playground">modularity-playground  (Tabs, pollMaster, authority, cached public, jsonDumper, nws, httpity),   2021-02</a></mark></summary><p id="02b24730-01ba-409b-ab36-f70a7a67b853"><a href="https://github.com/UniBreakfast/modularity-playground">https://github.com/UniBreakfast/modularity-playground</a>
-<a href="https://modularity-playground.herokuapp.com/authTesting">https://modularity-playground.herokuapp.com/authTesting</a></p></details></li></ul><ul id="801402ab-441d-4865-b525-20bdf9bad099" class="toggle"><li><details open=""><summary><a href="https://github.com/UniBreakfast/nws-pacer">nws-pacer  (multipage transitions, click sounds, nice style, node-web-server-with-stuff, useMongo, hashVerify),   2020-12</a></summary><p id="ccb249ad-32cc-4487-b7e2-40a29cd1a8eb"><a href="https://github.com/UniBreakfast/nws-pacer">https://github.com/UniBreakfast/nws-pacer</a>
-<a href="https://nws-pacer.herokuapp.com/">https://nws-pacer.herokuapp.com/</a></p></details></li></ul><ul id="c99ab076-b811-40f3-9d62-ed839473988a" class="toggle"><li><details open=""><summary><mark class="highlight-gray_background"><a href="https://github.com/UniBreakfast/pacer">pacer - при Лёше xin90210  (swithable data storages, sliding modal, toasts, nice style, operables, center for front-back commons, telegram notifications, backFS),   2020-10 </a></mark></summary><p id="6d8bd80f-e323-42e7-9f9b-3ea7f65aeace"><a href="https://github.com/UniBreakfast/pacer">https://github.com/UniBreakfast/pacer</a>
-<a href="https://pacer-game.herokuapp.com/">https://pacer-game.herokuapp.com</a></p></details></li></ul><ul id="5300e353-71e3-4ae5-bd35-0a0c1e7a8047" class="toggle"><li><details open=""><summary><a href="https://github.com/UniBreakfast/tiger-pacer-speedrun">tiger-pacer-speedrun  (functional continious tasklist in localStorage, element.prototype.methods, autosync store, tell numerics, toggle, sort, filter, views, nice style),   2020-02</a></summary><p id="45f4f86d-94ec-4506-9d79-b850d73117f7"><a href="https://github.com/UniBreakfast/tiger-pacer-speedrun">https://github.com/UniBreakfast/tiger-pacer-speedrun</a>
-<a href="https://unibreakfast.github.io/tiger-pacer-speedrun/">https://unibreakfast.github.io/tiger-pacer-speedrun</a></p></details></li></ul><ul id="95c7dc98-cf16-463c-8dac-05f925fc555f" class="toggle"><li><details open=""><summary><mark class="highlight-yellow_background"><a href="https://github.com/UniBreakfast/node-pacer0">node-pacer0  (able.js, dotted focus, feedback form, import many function),   2019-10</a></mark></summary><p id="486044a3-2cd8-4f3d-a69a-d78bf1e54d97"><a href="https://github.com/UniBreakfast/node-pacer0">https://github.com/UniBreakfast/node-pacer0</a>
-removed it from heroku</p></details></li></ul><ul id="8eb721e7-034f-4772-b6be-25ebb1d508a3" class="toggle"><li><details open=""><summary><a href="https://github.com/UniBreakfast/web-ProtoPacer1">web-ProtoPacer1 - давно забытые эксперименты,   2018-10</a></summary><p id="0dc1db75-b494-4690-bd31-50579bc5452a"><a href="https://github.com/UniBreakfast/web-ProtoPacer1">https://github.com/UniBreakfast/web-ProtoPacer1</a>
-<a href="https://unibreakfast.github.io/web-ProtoPacer1/PPtranslate/">https://unibreakfast.github.io/web-ProtoPacer1/PPtranslate/</a>, но в других ветках всё другое...</p></details></li></ul></details></li></ul><p id="5db94514-fe67-47cf-b391-b877a6adba24">
-</p></div></article></body></html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Pacer related materials and repos registry</title>
+
+	<link rel="stylesheet" href="pacer-related-materials-and-repos.css">
+</head>
+
+<body>
+	<article class="page sans">
+		<header>
+			<div class="page-header-icon undefined"><span class="icon">🏢</span></div>
+
+			<h1 class="page-title">Pacer related materials and repos registry</h1>
+		</header>
+
+		<div class="page-body">
+			<h3>← <a href="..">root Pacer page here at Notion</a></h3>
+
+			<hr />
+
+			<ul class="toggle">
+				<li>
+					<details open>
+						<summary><mark class="highlight-orange_background">
+							<a href="https://sites.google.com/view/mihailninin/media/instruments/pacer-development">Страница на Google Sites, посвящённая разработкe, 2016 - 2019</a>
+						</mark></summary>
+						
+						<p>
+							<a href="https://sites.google.com/view/mihailninin/media/instruments/pacer-development">https://sites.google.com/site/mihailninin/media/instruments/pacer-development</a>
+						</p>
+
+						<div class="indented">
+							<p><a href="https://sites.google.com/view/mihailninin/media/instruments/pacer-development/vision">0. Виденье</a></p>
+							<p><a href="https://sites.google.com/view/mihailninin/media/instruments/pacer-development/intro">1. Введение</a></p>
+							<p><a href="https://sites.google.com/view/mihailninin/media/instruments/pacer-development/process">2. Процесс</a></p>
+							<p><a href="https://sites.google.com/view/mihailninin/media/instruments/pacer-development/details">3. Правила детальнее</a></p>
+						</div>
+					</details>
+				</li>
+
+				<li>
+					<details open>
+						<summary><a href="https://docs.google.com/document/d/1Fo_5vO3ItORyFo0knauARzT_XRa4X4JuVm7p6F76Cmw">Бриф PacerGame в Google Docs, 2019-04</a></summary>
+						<p><a href="http://bit.ly/brief-pacergame">http://bit.ly/brief-pacergame</a> = <a href="https://docs.google.com/document/d/1Fo_5vO3ItORyFo0knauARzT_XRa4X4JuVm7p6F76Cmw/edit">https://docs.google.com/document/d/1Fo_5vO3ItORyFo0knauARzT_XRa4X4JuVm7p6F76Cmw</a></p>
+					</details>
+				</li>
+
+				<li>
+					<details open>
+						<summary><mark class="highlight-blue_background"><a href="https://docs.google.com/document/d/13nod5JPGNOa-akE364s1lMaBXgGb8kPT2jdpL56MTuM">Описание моего кейса пользования фреймворком в Google Docs, 2018-08</a></mark></summary>
+						<p><a href="http://bit.ly/pacer-my-case">http://bit.ly/pacer-my-case</a> =
+							<a href="https://docs.google.com/document/d/13nod5JPGNOa-akE364s1lMaBXgGb8kPT2jdpL56MTuM/edit">https://docs.google.com/document/d/13nod5JPGNOa-akE364s1lMaBXgGb8kPT2jdpL56MTuM</a>
+						</p>
+					</details>
+				</li>
+
+				<li>
+					<details open>
+						<summary><a href="https://docs.google.com/presentation/d/1F7OijfC84Qgb36TBPLEFZHc2hbupF0jsUK90DrSmgAI">Визуальная иерархическая презентация в Google Slides, 2016-10</a></summary>
+						<p><a href="https://docs.google.com/presentation/d/1F7OijfC84Qgb36TBPLEFZHc2hbupF0jsUK90DrSmgAI">https://docs.google.com/presentation/d/1F7OijfC84Qgb36TBPLEFZHc2hbupF0jsUK90DrSmgAI</a></p>
+						<p>
+						</p>
+					</details>
+				</li>
+
+				<li>
+					<details open>
+						<summary>Прежние законченные и брошенные попытки реализации</summary>
+						<ul class="toggle">
+							<li>
+								<details open>
+									<summary><mark class="highlight-teal_background"><a href="https://serhiishymchuk.github.io/pacer/">pacer - реализация, написанная с Шимой (functional, in localStorage, save/load state json), 2020-10</a></mark></summary>
+									<p><a href="https://github.com/UniBreakfast/pacer-1">https://github.com/UniBreakfast/pacer-1</a></p>
+									<p><a href="https://serhiishymchuk.github.io/pacer/">serhiishymchuk.github.io/pacer</a></p>
+								</details>
+							</li>
+
+							<li>
+								<details open>
+									<summary><a href="https://github.com/Degreet/pacer">pacer - реализация, недописанная с Никитой (bootstrap, new quest modal with calendars), 2020-11</a></summary>
+									<p><a href="https://github.com/Degreet/pacer">https://github.com/Degreet/pacer</a>
+										<a href="https://pacer-js.herokuapp.com/dashboard/activity">https://pacer-js.herokuapp.com/dashboard/activity</a>
+									</p>
+								</details>
+							</li>
+
+							<li>
+								<details open>
+									<summary><mark class="highlight-gray_background"><a href="https://github.com/UniBreakfast/layout-layout">layout-layout - минималистичная разметка страниц/экранов возможной реализации, 2020-08</a></mark></summary>
+									<p><a href="https://github.com/UniBreakfast/layout-layout">https://github.com/UniBreakfast/layout-layout</a>
+										<a href="https://unibreakfast.github.io/layout-layout/screens/start/">https://unibreakfast.github.io/layout-layout/screens/start/</a>
+									</p>
+								</details>
+							</li>
+
+							<li>
+								<details open>
+									<summary><a href="https://github.com/UniBreakfast/pacer-code-base">pacer-code-base (компоненты SplitView, remember Tabs, dev layers), 2021-04</a></summary>
+									<p><a href="https://github.com/UniBreakfast/pacer-code-base">https://github.com/UniBreakfast/pacer-code-base</a></p>
+									<p><a href="https://unibreakfast.github.io/pacer-code-base/">https://unibreakfast.github.io/pacer-code-base/</a></p>
+								</details>
+							</li>
+
+							<li>
+								<details open>
+									<summary><mark class="highlight-red_background"><a href="https://github.com/UniBreakfast/modularity-playground">modularity-playground (Tabs, pollMaster, authority, cached public, jsonDumper, nws, httpity), 2021-02</a></mark></summary>
+									<p><a href="https://github.com/UniBreakfast/modularity-playground">https://github.com/UniBreakfast/modularity-playground</a>
+										<a href="https://modularity-playground.herokuapp.com/authTesting">https://modularity-playground.herokuapp.com/authTesting</a>
+									</p>
+								</details>
+							</li>
+
+							<li>
+								<details open>
+									<summary><a href="https://github.com/UniBreakfast/nws-pacer">nws-pacer (multipage transitions, click sounds, nice style, node-web-server-with-stuff, useMongo, hashVerify), 2020-12</a></summary>
+									<p><a href="https://github.com/UniBreakfast/nws-pacer">https://github.com/UniBreakfast/nws-pacer</a>
+										<a href="https://nws-pacer.herokuapp.com/">https://nws-pacer.herokuapp.com/</a>
+									</p>
+								</details>
+							</li>
+
+							<li>
+								<details open>
+									<summary><mark class="highlight-gray_background"><a href="https://github.com/UniBreakfast/pacer">pacer - при Лёше xin90210 (swithable data storages, sliding modal, toasts, nice style, operables, center for front-back commons, telegram notifications, backFS), 2020-10 </a></mark></summary>
+									<p><a href="https://github.com/UniBreakfast/pacer">https://github.com/UniBreakfast/pacer</a>
+										<a href="https://pacer-game.herokuapp.com/">https://pacer-game.herokuapp.com</a>
+									</p>
+								</details>
+							</li>
+
+							<li>
+								<details open>
+									<summary><a href="https://github.com/UniBreakfast/tiger-pacer-speedrun">tiger-pacer-speedrun (functional continious tasklist in localStorage, element.prototype.methods, autosync store, tell numerics, toggle, sort, filter, views, nice style), 2020-02</a></summary>
+									<p><a href="https://github.com/UniBreakfast/tiger-pacer-speedrun">https://github.com/UniBreakfast/tiger-pacer-speedrun</a>
+										<a href="https://unibreakfast.github.io/tiger-pacer-speedrun/">https://unibreakfast.github.io/tiger-pacer-speedrun</a>
+									</p>
+								</details>
+							</li>
+
+							<li>
+								<details open>
+									<summary><mark class="highlight-yellow_background"><a href="https://github.com/UniBreakfast/node-pacer0">node-pacer0 (able.js, dotted focus, feedback form, import many function), 2019-10</a></mark></summary>
+									<p><a href="https://github.com/UniBreakfast/node-pacer0">https://github.com/UniBreakfast/node-pacer0</a>
+										removed it from heroku</p>
+								</details>
+							</li>
+
+							<li>
+								<details open>
+									<summary><a href="https://github.com/UniBreakfast/web-ProtoPacer1">web-ProtoPacer1 - давно забытые эксперименты, 2018-10</a></summary>
+									<p><a href="https://github.com/UniBreakfast/web-ProtoPacer1">https://github.com/UniBreakfast/web-ProtoPacer1</a>
+										<a href="https://unibreakfast.github.io/web-ProtoPacer1/PPtranslate/">https://unibreakfast.github.io/web-ProtoPacer1/PPtranslate/</a>, но в других ветках всё другое...
+									</p>
+								</details>
+							</li>
+						</ul>
+					</details>
+				</li>
+			</ul>
+		</div>
+	</article>
+</body>
+
+</html>

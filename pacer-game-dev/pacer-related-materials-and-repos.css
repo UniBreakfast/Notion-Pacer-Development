@@ -1,0 +1,80 @@
+@media only screen {
+  body {
+    margin: 2em auto;
+    max-width: 900px;
+    color: rgb(55, 53, 47);
+  }
+}
+
+a,
+a.visited {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.75em;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+ol,
+ul {
+  margin: 0;
+  margin-block-start: 0.6em;
+  margin-block-end: 0.6em;
+}
+
+
+.toggle {
+  padding-inline-start: 0em;
+  list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle>li>details {
+  padding-left: 1.7em;
+}
+
+.toggle>li>details>summary {
+  margin-left: -1.1em;
+}
+
+.page-header-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.sans {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.highlight-gray_background {
+  background: rgb(235, 236, 237);
+}
+
+.highlight-orange_background {
+  background: rgb(250, 235, 221);
+}
+
+.highlight-yellow_background {
+  background: rgb(251, 243, 219);
+}
+
+.highlight-teal_background {
+  background: rgb(221, 237, 234);
+}
+
+.highlight-blue_background {
+  background: rgb(221, 235, 241);
+}
+
+.highlight-red_background {
+  background: rgb(251, 228, 228);
+}
