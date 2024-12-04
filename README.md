@@ -1,6 +1,6 @@
 # [Notion-Pacer-Development](https://github.com/UniBreakfast/Notion-Pacer-Development)
 
-## My work on the PacerGame concept done in Notion and exported into html
+## My work on the PacerGame concept done in Notion and exported as html
 
 ![image](https://github.com/user-attachments/assets/1d1c3d54-0ec8-42cf-ae77-b6d6656e2c04)
 
