@@ -1,0 +1,85 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>ContextMenu - Всплывающее меню</title>
+	
+	<link rel="stylesheet" href="../time-panel.css">
+</head>
+
+<body>
+	<article class="page sans">
+		<header>
+			<div class="page-header-icon undefined"><span class="icon">🚦</span></div>
+			<h1 class="page-title">ContextMenu - Всплывающее меню</h1>
+		</header>
+
+		<div class="page-body">
+			<div class="column-list">
+				<div style="width:25%" class="column">
+					<p>Интерактивный компонент для UI-составляющей контекстных меню.</p>
+				</div>
+
+				<div style="width:75%" class="column">
+					<nav class="block-color-gray table_of_contents">
+						<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e5305ab7-7214-43a2-a139-a31b2f9607a8"><code>new ContextMenu(items)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ee5560b1-0505-43b6-9833-af7983ecada6">Методы экземпляров</a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#eaaf4b82-dfe3-4eb8-80df-6d5c4f0c6a22"><code>.render()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#240cc9b7-cfe6-45a1-8cda-c73fd315caeb"><code>.show(x, y)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#93c5bf1a-ee4e-417e-8620-02e8ef7683fd"><code>.showPersist(x, y)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#efd11854-0e1a-48f3-a022-002f1a0a88ec"><code>.hide()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7c258841-81ab-43df-8f03-fb1192dcb683"><code>.isHidden()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#688d58eb-f340-4951-998d-9f75370093bf"><code>.setSubj(details)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#81e3a9c6-cbf6-4666-b753-0c4845c105a8"><code>.getSubj()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e7864a6f-36fd-413c-b491-93e340406e52"><code>.setItems(items)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c4d1f043-5719-4e6a-8276-75f085a6824b"><code>.getItems()</code></a></div>
+					</nav>
+				</div>
+			</div>
+
+			<h3 id="e5305ab7-7214-43a2-a139-a31b2f9607a8"><code>new ContextMenu(items)</code></h3>
+			
+			<p>Конструктор при вызове создаёт экземпляр объект-меню с методами для его настройки и использования, хранящий затем эти настройки на себе. Принимает необязательный массив объектов вида <code>{label, handlerFn, disabled}</code>, задающих нужные пункты меню. Кроме объектов в массиве могут быть строки, которые просто выведутся наравне с пунктами меню, но не будут никак обрабатываться, или любые falsy-значения, которые будут означать горизонтальный разделитель между пунктами меню.</p>
+			
+			<h2 id="ee5560b1-0505-43b6-9833-af7983ecada6">Методы экземпляров</h2>
+			
+			<h3 id="eaaf4b82-dfe3-4eb8-80df-6d5c4f0c6a22"><code>.render()</code></h3>
+			
+			<p>Строит все DOM-элементы из массива items, предоставленного компоненту.</p>
+			
+			<h3 id="240cc9b7-cfe6-45a1-8cda-c73fd315caeb"><code>.show(x, y)</code></h3>
+			
+			<p>Выводит меню на экран, ориентировочно с левым верхним углом в указанных координатах. Если при этом меню не поместится на экран, оно должно быть левее и/или выше насколько необходимо, чтобы поместиться. Если всё равно негде уместиться, оно должно уменьшиться с появлением скроллинга. Клик мимо закрывает меню.</p>
+			
+			<h3 id="93c5bf1a-ee4e-417e-8620-02e8ef7683fd"><code>.showPersist(x, y)</code></h3>
+			
+			<p>То же, но клик мимо не закрывает меню.</p>
+			
+			<h3 id="efd11854-0e1a-48f3-a022-002f1a0a88ec"><code>.hide()</code></h3>
+			
+			<p>Убирает меню с экрана. DOM-элемент с меню удаляется из документа.</p>
+			
+			<h3 id="7c258841-81ab-43df-8f03-fb1192dcb683"><code>.isHidden()</code></h3>
+			
+			<p>Возвращает <code>true</code> / <code>false</code>, если меню на виду / скрыто.</p>
+			
+			<h3 id="688d58eb-f340-4951-998d-9f75370093bf"><code>.setSubj(details)</code></h3>
+			
+			<p>Принимает и запоминает значение (простое или сложное), чтобы передавать его в обработчики пунктов меню. По замыслу там могут быть данные, относительно которых пункт меню должен быть выполнен.</p>
+			
+			<h3 id="81e3a9c6-cbf6-4666-b753-0c4845c105a8"><code>.getSubj()</code></h3>
+			
+			<p>Возвращает значение, запомненное для передачи его в обработчики пунктов меню.</p>
+			
+			<h3 id="e7864a6f-36fd-413c-b491-93e340406e52"><code>.setItems(items)</code></h3>
+			
+			<p>Принимает и запоминает (вместо прежнего) массив объектов-дескрипторов пунктов меню вида <code>{label, handlerFn, disabled}</code>.</p>
+			
+			<h3 id="c4d1f043-5719-4e6a-8276-75f085a6824b"><code>.getItems()</code></h3>
+			
+			<p>Возвращает сохранённый в данный момент массив объектов-дескрипторов пунктов меню.</p>
+		</div>
+	</article>
+</body>
+
+</html>

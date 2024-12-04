@@ -1,0 +1,153 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>PacerGM - вся игра в одном объекте</title>
+	
+	<link rel="stylesheet" href="pacer-gm.css">
+</head>
+
+<body>
+	<article class="page sans">
+		<header>
+			<h1 class="page-title">PacerGM - вся игра в одном объекте</h1>
+		</header>
+
+		<div class="page-body">
+			<div class="column-list">
+				<div style="width:12.5%" class="column">
+					<p>Класс, отвечающий за всю игру, но без ввода, вывода и персистентных данных.</p>
+				</div>
+
+				<div style="width:87.5%" class="column">
+					<nav class="block-color-gray table_of_contents">
+						<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6865f009-5f8b-41c7-816a-2f7d6975a0c4"><code>new PacerGM(initialState)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#139a5b0a-8010-458e-aec5-94801f8e23e7">Методы экземпляра</a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2f313af1-200b-47e9-9ac3-008bfdab34c2"><code>.start(confidence)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b41e1e17-3f84-439f-b056-a43fee74357b"><code>.getConfidence()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2a08ca1f-4cbb-4df1-8135-a1d300daf121"><code>.getDifficultyScale()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8a813546-beca-4a36-ae10-0eb1d632f110"><code>.useTime(providerFn)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d84a1b45-7faf-4283-8d0b-fbb1ccea3cc1"><code>.pause()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c198ed58-afd3-4ade-866c-280637f8c4c3"><code>.run()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d088b026-9406-4252-8d24-55793ec2bb44"><code>.setTime(date)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8e6c9317-3b55-4dc1-ab05-d78bb2c8f71b"><code>.getTime()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d4751bb4-4963-46da-8c4b-37824c47b36c"><code>.addActivity(text, size, difficulty)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#63244a27-7c10-4b9d-b46b-adda9b6589e5"><code>.updateActivity(actId, text, size, difficulty)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#bf98c30f-1ed3-4a6c-8718-9db616411d4c"><code>.getActivities()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4cac9963-b0d2-44a2-8e88-ccd91d009775"><code>.takeQuest(actId, dates)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7bcea4ff-0ef1-4327-a0ff-fce60d1b7d27"><code>.getQuests()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d8ec12f1-4100-4c6b-812f-fd951a06ef19"><code>.getTodos()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#69c8727c-d139-40e2-b11c-bf5ee92d96d2"><code>.markDone(todoId)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#46a39cb3-7c5f-47bb-b337-b3b1503c9839"><code>.markFailed(todoId)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1052e0e6-545a-47ab-916c-7e8bfa7a637c"><code>.loadData({confidence, activities, quests, todos, time})</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#0ea04cb1-bd5d-4097-b406-b001f9368946">События</a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#33accfce-fb15-404c-af5d-aa174f695fe3"><code>&quot;change.activities&quot;</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b10eb460-f8ac-45fd-aa5f-60dfca189513"><code>&quot;change.quests&quot;</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#65da7bb0-ea35-43d8-8859-016e8b36d066"><code>&quot;change.todos&quot;</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#dfb11ffb-d599-4f35-9c57-c6acd4900a3b"><code>&quot;change.confidence&quot;</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#65eb9852-7b07-443a-9c34-370b2656f882"><code>&quot;change.time&quot;</code></a></div>
+					</nav>
+				</div>
+			</div>
+
+			<h3 id="6865f009-5f8b-41c7-816a-2f7d6975a0c4"><code>new PacerGM(initialState)</code></h3>
+			
+			<p>Конструктор может принимать объект с загруженным состоянием игры вида </p>
+			<p><code>{confidence, activities: [{}], quests: [{}], todos: [{}],}</code></p>
+			
+			<h2 id="139a5b0a-8010-458e-aec5-94801f8e23e7">Методы экземпляра</h2>
+			
+			<h3 id="2f313af1-200b-47e9-9ac3-008bfdab34c2"><code>.start(confidence)</code></h3>
+			
+			<p>Устанавливает заданное количество очков веры в себя (2-10), избавляется от всех хранившихся действий, квестов и выполнений. Запоминает количество очков веры в себя также в качестве величины для расчёта вопроса насчёт сложности действий.</p>
+			
+			<h3 id="b41e1e17-3f84-439f-b056-a43fee74357b"><code>.getConfidence()</code></h3>
+			
+			<p>Возвращает текущее количество очков веры в себя.</p>
+			
+			<h3 id="2a08ca1f-4cbb-4df1-8135-a1d300daf121"><code>.getDifficultyScale()</code></h3>
+			
+			<p>Возвращает расчётную величину, сохранённую при старте для последующей оценки сложности действий.</p>
+			
+			<h3 id="8a813546-beca-4a36-ae10-0eb1d632f110"><code>.useTime(providerFn)</code></h3>
+			
+			<p>Принимает функцию, которая должна возвращать объект даты. Начинает следить за временем с помощью неё. </p>
+			
+			<h3 id="d84a1b45-7faf-4283-8d0b-fbb1ccea3cc1"><code>.pause()</code></h3>
+			
+			<p>Прерывает слежение за временем.</p>
+			
+			<h3 id="c198ed58-afd3-4ade-866c-280637f8c4c3"><code>.run()</code></h3>
+			
+			<p>Начинает/возобновляет слежение за временем с помощью последней функции, передававшейся в <code>.useTime(providerFn)</code>, или <code>new Date</code>.</p>
+			
+			<h3 id="d088b026-9406-4252-8d24-55793ec2bb44"><code>.setTime(date)</code></h3>
+			
+			<p>Прерывает слежение за временем и устанавливает заданное. </p>
+			
+			<h3 id="8e6c9317-3b55-4dc1-ab05-d78bb2c8f71b"><code>.getTime()</code></h3>
+			
+			<p>Возвращает последнее зафиксированное время. </p>
+			
+			<h3 id="d4751bb4-4963-46da-8c4b-37824c47b36c"><code>.addActivity(text, size, difficulty)</code></h3>
+			
+			<p>Добавляет новое действие с заданным текстом, мерой и сложностью (от 1 до 10).</p>
+			
+			<h3 id="63244a27-7c10-4b9d-b46b-adda9b6589e5"><code>.updateActivity(actId, text, size, difficulty)</code></h3>
+			
+			<p>Обновляет действие с указанным идентификатором, устанавливая переданный текст, меру и сложность.</p>
+			
+			<h3 id="bf98c30f-1ed3-4a6c-8718-9db616411d4c"><code>.getActivities()</code></h3>
+			
+			<p>Возвращает данные всех хранящихся действий.</p>
+			
+			<h3 id="4cac9963-b0d2-44a2-8e88-ccd91d009775"><code>.takeQuest(actId, dates)</code></h3>
+			
+			<p>Если очков веры в себя достаточно, и даты валидные, создаёт новый квест на указанное действие с выполнениями, запланированными на указанные даты.</p>
+			
+			<h3 id="7bcea4ff-0ef1-4327-a0ff-fce60d1b7d27"><code>.getQuests()</code></h3>
+			
+			<p>Возвращает данные всех хранящихся квестов.</p>
+			
+			<h3 id="d8ec12f1-4100-4c6b-812f-fd951a06ef19"><code>.getTodos()</code></h3>
+			
+			<p>Возвращает данные всех хранящихся выполнений.</p>
+			
+			<h3 id="69c8727c-d139-40e2-b11c-bf5ee92d96d2"><code>.markDone(todoId)</code></h3>
+			
+			<p>Если это возможно, отмечает действие с указанным идентификатором как выполненное.</p>
+			
+			<h3 id="46a39cb3-7c5f-47bb-b337-b3b1503c9839"><code>.markFailed(todoId)</code></h3>
+			
+			<p>Если это возможно, отмечает действие с указанным идентификатором как проваленное.</p>
+			
+			<h3 id="1052e0e6-545a-47ab-916c-7e8bfa7a637c"><code>.loadData({confidence, activities, quests, todos, time})</code></h3>
+			
+			<p>Заменяет все хранимые данные переданными. </p>
+			
+			<h2 id="0ea04cb1-bd5d-4097-b406-b001f9368946">События</h2>
+			
+			<h3 id="33accfce-fb15-404c-af5d-aa174f695fe3"><code>&quot;change.activities&quot;</code></h3>
+			
+			<p>Сигнализирует об изменениях в действиях. </p>
+			
+			<h3 id="b10eb460-f8ac-45fd-aa5f-60dfca189513"><code>&quot;change.quests&quot;</code></h3>
+			
+			<p>Сигнализирует об изменениях в квестах.</p>
+			
+			<h3 id="65da7bb0-ea35-43d8-8859-016e8b36d066"><code>&quot;change.todos&quot;</code></h3>
+			
+			<p>Сигнализирует об изменениях в выполнениях.</p>
+			
+			<h3 id="dfb11ffb-d599-4f35-9c57-c6acd4900a3b"><code>&quot;change.confidence&quot;</code></h3>
+			
+			<p>Сигнализирует об изменениях веры в себя.</p>
+			
+			<h3 id="65eb9852-7b07-443a-9c34-370b2656f882"><code>&quot;change.time&quot;</code></h3>
+			
+			<p>Сигнализирует об изменении текущего времени.</p>
+		</div>
+	</article>
+</body>
+
+</html>

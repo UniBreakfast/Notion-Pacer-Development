@@ -1,0 +1,91 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Modal - Окно диалога</title>
+	
+	<link rel="stylesheet" href="../time-panel.css">
+</head>
+
+<body>
+	<article class="page sans">
+		<header>
+			<div class="page-header-icon undefined"><span class="icon">💬</span></div>
+			<h1 class="page-title">Modal - Окно диалога</h1>
+		</header>
+
+		<div class="page-body">
+			<div class="column-list">
+				<div style="width:37.5%" class="column">
+					<p>Блок, появляющийся в центре экрана, чтобы что-то важное сообщить или спросить о чём-то пользователя. Клик мимо либо запрещён и не обрабатывается, либо закрывает модалку.</p>
+				</div>
+				
+				<div style="width:62.5%" class="column">
+					<nav class="block-color-gray table_of_contents">
+						<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#81499074-7616-4a27-9592-e8907e850280"><code>new Modal(content)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#94629f4d-5ffd-4e28-b0ea-23bffb164a79">Методы экземпляров</a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1254573d-96e8-4efb-9497-c84b97714a58"><code>.render()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1eb7cf94-a5d6-44c2-a339-133bc700261b"><code>.prompt()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b726195b-59d9-4473-9922-fb27f4765750"><code>.promptInsist()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0d5d9c52-7445-417b-9880-e0c86594bd30"><code>.hide()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#dec0a8fb-f1bf-4a96-892c-03e4a57a59b9"><code>.isHidden()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8d931125-6fcc-452d-887b-b594f95386cf"><code>.setContent(html_or_elements)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1ebfaad9-9b1c-4baf-8c49-ecbde6fc2ae5"><code>.useClickOutHandler(fn)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9dae193c-7e9d-48df-b7bc-50f3af91fa5a"><code>.setSubj(details)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3c5ce543-83c4-4752-bc37-f54f455b5184"><code>.getSubj()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#99144ab9-061c-4527-9529-49c9e4d45cef">Дизайн</a></div>
+					</nav>
+				</div>
+			
+			</div>
+			
+			<h3 id="81499074-7616-4a27-9592-e8907e850280"><code>new Modal(content)</code></h3>
+			
+			<p>Создаёт экземпляр модального диалога. Принимает фрагмент html-размети или DOM-элементы, так или иначе помещает это в модалку.</p>
+			
+			<h2 id="94629f4d-5ffd-4e28-b0ea-23bffb164a79">Методы экземпляров</h2>
+			
+			<h3 id="1254573d-96e8-4efb-9497-c84b97714a58"><code>.render()</code></h3>
+			
+			<p>Выполняет построение элементов модалки и её контентной области.</p>
+			
+			<h3 id="1eb7cf94-a5d6-44c2-a339-133bc700261b"><code>.prompt()</code></h3>
+			
+			<p>Показывает модалку и возвращает промис, в котором должно появиться значение после выполнения пользователем ожидаемого решающего действия. Клик мимо также решает промис и закрывает модалку.</p>
+			
+			<h3 id="b726195b-59d9-4473-9922-fb27f4765750"><code>.promptInsist()</code></h3>
+			
+			<p>То же, но клик мимо не обрабатывается.</p>
+			
+			<h3 id="0d5d9c52-7445-417b-9880-e0c86594bd30"><code>.hide()</code></h3>
+			
+			<p>Удаляет модалку из документа.</p>
+			
+			<h3 id="dec0a8fb-f1bf-4a96-892c-03e4a57a59b9"><code>.isHidden()</code></h3>
+			
+			<p>Возвращает <code>true</code> / <code>false</code>, если меню на скрыто / виду.</p>
+			
+			<h3 id="8d931125-6fcc-452d-887b-b594f95386cf"><code>.setContent(html_or_elements)</code></h3>
+			
+			<p>Принимает фрагмент html-разметки или DOM-элементы и заменяет этим контент модалки.</p>
+			
+			<h3 id="1ebfaad9-9b1c-4baf-8c49-ecbde6fc2ae5"><code>.useClickOutHandler(fn)</code></h3>
+			
+			<p>Принимает и запоминает обработчик клика мимо модалки.</p>
+			
+			<h3 id="9dae193c-7e9d-48df-b7bc-50f3af91fa5a"><code>.setSubj(details)</code></h3>
+			
+			<p>Принимает и запоминает значение (простое или сложное), чтобы передавать его в обработчики пунктов меню. По замыслу там могут быть данные, относительно которых пункт меню должен быть выполнен.</p>
+			
+			<h3 id="3c5ce543-83c4-4752-bc37-f54f455b5184"><code>.getSubj()</code></h3>
+			
+			<p>Возвращает значение, запомненное для передачи его в обработчики пунктов меню.</p>
+			
+			<h2 id="99144ab9-061c-4527-9529-49c9e4d45cef">Дизайн</h2>
+			
+			<p>Само окно диалога должно появляться в центре экрана. Окружающее пространство должно немного затемняться с незначительным эффектом размывки.</p>
+		</div>
+	</article>
+</body>
+
+</html>

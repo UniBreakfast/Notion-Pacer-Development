@@ -1,0 +1,70 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>MainView - Главный экран</title>
+	
+	<link rel="stylesheet" href="time-panel.css">
+</head>
+
+<body>
+	<article class="page sans">
+		<header>
+			<div class="page-header-icon undefined"><span class="icon">🎰</span></div>
+			<h1 class="page-title">MainView - Главный экран</h1>
+		</header>
+
+		<div class="page-body">
+			<div class="column-list">
+				<div style="width:31.25%" class="column">
+					<p>Блочный элемент контейнер для основных экранов приложения. Включает полосу вкладок и контентную область текущей выбранной вкладки. </p>
+				</div>
+
+				<div style="width:68.75%" class="column">
+					<nav class="block-color-gray table_of_contents">
+						<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d1c09955-a370-4cfa-aee7-4796f426e36c"><code>new MainView(parent, tabTitles) </code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#29b7d555-de7c-481f-b705-3aa8bc3778c0">Методы экземпляра </a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0fccf50f-502a-48f8-8b9a-5c43e7226497"><code>.gotoTab(tabTitle)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#3cddfda0-e067-4045-b1f7-c1285aba9a33"><code>.useTabOpenHandler(tabTitle, fn)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c719ffcf-6c88-426b-b55b-d78eb847a11d"><code>.useTabCloseHandler(tabTitle, fn)</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#81e56a96-002f-4ff3-a84c-dfadb3812545"><code>.getOpenTabTitle()</code></a></div>
+						<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5e3a0983-9d98-4d7c-9aa8-8a71e7283391">Дизайн</a></div>
+						<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7f203c14-aa53-4340-9280-7b2fe2df1a25">Поведение</a></div>
+					</nav>
+				</div>
+			</div>
+
+			<h3 id="d1c09955-a370-4cfa-aee7-4796f426e36c"><code>new MainView(parent, tabTitles) </code></h3>
+			
+			<p>Конструктор принимает указатель на DOM-элемент для вставки компонента и массив заголовков для вкладок (он сохраняется в <code>this.tabTitles</code>). При этом компонент рендерится на странице, в нём создаются соответствующие вкладки. Ссылки на их контентные элементы записываются в <code>this.tabContentHolders[tabTitle]</code> .</p>
+			
+			<h2 id="29b7d555-de7c-481f-b705-3aa8bc3778c0">Методы экземпляра </h2>
+			
+			<h3 id="0fccf50f-502a-48f8-8b9a-5c43e7226497"><code>.gotoTab(tabTitle)</code></h3>
+			
+			<p>Открывает вкладку с указанным заголовком. </p>
+			
+			<h3 id="3cddfda0-e067-4045-b1f7-c1285aba9a33"><code>.useTabOpenHandler(tabTitle, fn)</code></h3>
+			
+			<p>Запоминает обработчик открытия вкладки с указанным заголовком.</p>
+			
+			<h3 id="c719ffcf-6c88-426b-b55b-d78eb847a11d"><code>.useTabCloseHandler(tabTitle, fn)</code></h3>
+			
+			<p>Запоминает обработчик зарытия вкладки с указанным заголовком.</p>
+			
+			<h3 id="81e56a96-002f-4ff3-a84c-dfadb3812545"><code>.getOpenTabTitle()</code></h3>
+			
+			<p>Возвращает заголовок активной (открытой) вкладки.</p>
+			
+			<h2 id="5e3a0983-9d98-4d7c-9aa8-8a71e7283391">Дизайн</h2>
+			
+			<p>Вкладки сверху, всё остальное место в компоненте отдаётся контенту открытой вкладки. Первая вкладка и её контент не имеют своего фона и рамки, как бы выводятся прямо на фон компонента. Когда она открыта, остальные вкладки больше похожи на панель кнопок чем на вкладки. </p>
+			
+			<h2 id="7f203c14-aa53-4340-9280-7b2fe2df1a25">Поведение</h2>
+			
+			<p>При клике на неактивной вкладке вызывается обработчик закрытия текущей, закрывается текущая вкладка, открывается кликнутая, вызывается обработчик открытия кликнутой. </p>
+		</div>
+	</article>
+</body>
+
+</html>
