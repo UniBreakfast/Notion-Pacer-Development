@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/d074a905-ae99-4e62-a7ab-f9d9580e8a85)# [Notion-Pacer-Development](https://github.com/UniBreakfast/Notion-Pacer-Development)
+# [Notion-Pacer-Development](https://github.com/UniBreakfast/Notion-Pacer-Development)
 
 ## My work on the PacerGame concept done in Notion and exported into html
 
